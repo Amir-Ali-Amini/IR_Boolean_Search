@@ -51,6 +51,26 @@ The posting list is structured as follows:
 ]
 ```
 
+Each entry in the posting list includes:
+
+- **Word**: The tokenized word.
+- **Docs**: A list of documents containing this word, with each document entry providing:
+  - **Doc**: The document number.
+  - **Indexes**: A list of indices where the word appears in the document.
+
+### Input Method
+
+The `input` method accepts a list of document paths and processes each document, adding words to the posting list with their respective indices.
+
+Query Processing
+The find method processes queries, which can be categorized into three main types:
+
+1. **Single Word Queries**: Directly retrieves document indices containing the word.
+
+2. **Boolean Queries**: Supports `AND` and `OR` operations by intersecting or uniting document lists of the queried words.
+
+3. **Proximity (Near) Queries:** Computes the minimum distance between two words within documents and returns documents where this distance is below a specified threshold.
+
 # Usage example
 
 ```
